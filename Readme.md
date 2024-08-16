@@ -81,6 +81,8 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 Contributions are welcome! Please fork the repository and submit a pull request. Ensure that your changes adhere to the project's coding standards and include tests where applicable.
 
+[Git repository](https://github.com/tuuguuwastaken/react-mn-calendar)
+
 **Issues**
 
 If you encounter any issues or have feature requests, please open an issue on the GitHub repository.
