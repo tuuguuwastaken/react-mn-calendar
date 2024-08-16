@@ -1,13 +1,18 @@
 {
   "name": "react-mn-calendar",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "React calendar library with Mongolian localization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && cp src/CalendarStyle.css dist/CalendarStyle.css"
+    "build": "tsc && cp src/CalendarStyle.css dist/CalendarStyle.css",
+    "release": "standard-version"
   },
-  "keywords": ["react", "calendar", "component"],
+  "keywords": [
+    "react",
+    "calendar",
+    "component"
+  ],
   "author": "IzTuugii",
   "license": "MIT",
   "devDependencies": {
