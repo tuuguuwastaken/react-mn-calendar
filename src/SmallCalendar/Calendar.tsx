@@ -21,7 +21,7 @@ interface Theme {
 }
 
 const DatePicker: React.FC<Theme> = ({ mainColor = '#007bff', onClickDate}) => {
-  const [currentDate, setCurrentDate] = useState(startOfDay(new Date())); // Ensure the date is set to start of day
+  const [currentDate, setCurrentDate] = useState(startOfDay(new Date()));
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   const UpperCaseFirstLetter = (string: string): string => {
