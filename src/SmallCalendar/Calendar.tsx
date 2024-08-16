@@ -38,7 +38,7 @@ const DatePicker: React.FC<Theme> = ({ mainColor = '#007bff', onClickDate}) => {
       <div className="header row flex-middle">
         <div className="col col-start">
           <div className="icon" onClick={prevMonth}>
-            <i className="fa-solid fa-chevron-left"></i>
+            {`<`}
           </div>
         </div>
         <div className="col col-center">
@@ -46,7 +46,7 @@ const DatePicker: React.FC<Theme> = ({ mainColor = '#007bff', onClickDate}) => {
         </div>
         <div className="col col-end" onClick={nextMonth}>
           <div className="icon">
-            <i className="fa-solid fa-chevron-right"></i>
+           {`>`}
           </div>
         </div>
       </div>

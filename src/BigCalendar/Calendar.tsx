@@ -21,7 +21,7 @@ interface Event {
   title: string
   date: string // ISO string format
   color?: string | null
-  data?: any,
+  data?: any
 }
 
 interface BigCalendarProps {
@@ -42,15 +42,15 @@ const BigCalendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateC
       <div className="header row flex-middle">
         <div className="col col-start">
           <div className="icon" onClick={prevMonth}>
-            <i className="fa-solid fa-chevron-left"></i>
+            {`<`}
           </div>
         </div>
         <div className="col col-center">
-          <span>{format(currentDate, dateFormat, { locale: mn })}</span>
+          <span style={{ fontSize: 42 }}>{format(currentDate, dateFormat, { locale: mn })}</span>
         </div>
         <div className="col col-end" onClick={nextMonth}>
           <div className="icon">
-            <i className="fa-solid fa-chevron-right"></i>
+            {`>`}
           </div>
         </div>
       </div>

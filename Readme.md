@@ -53,25 +53,75 @@ export default App;
 
 ## The Calendar component displays a full-sized calendar view.
 
-**Props:**
-  - events (array): An array of event objects with the following properties:
+**Event Props:**
   - id (string): Unique identifier for the event.
   - title (string): Title of the event.
   - date (string): Event date in ISO string format.
   - color (string, optional): Background color for the event.
 
+
+**Calendar Props**
+ - onDateClick: return a Date object
+ - onEventClick: returns a Event object as mention in the Event Props section
+ - renderHeader : function to render your own header for the calendar (**only on the Large Calendar**)
+
+
 **Example:**
 ```js
-<Calendar events={events} />
-```
-******CSS Styles******
 
-To apply the default styles for the components, import the CSS files into your project:
-```js
-import 'big-calendar-react/dist/BigCalendar/CalendarStyle.css'; // Styles for Calendar
-import 'big-calendar-react/dist/SmallCalendar/CalendarStyle.css'; // Styles for SmallCalendar
+interface CustomHeaderProps {
+  currentDate: Date
+  prevMonth: () => void
+  nextMonth: () => void
+  setCurrentDate: (date: Date) => void
+}
 
+const CustomHeader: React.FC<CustomHeaderProps> = ({ currentDate, prevMonth, nextMonth, setCurrentDate }) => {
+  const UpperCaseFirstLetter = (string: string): string => {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+  return (
+    <div className="custom-header">
+      <button onClick={prevMonth}>Previous</button>
+      <span>{UpperCaseFirstLetter(format(currentDate, "MMMM yyyy"))}</span>
+      <button onClick={nextMonth}>Next</button>
+      <button onClick={() => setCurrentDate(new Date())}>Today</button>
+    </div>
+  )
+}
+const events = [
+  { id: "1", title: "Event 1", date: "2024-08-10", color: "#FF5733" }, // Example: red-orange
+  { id: "2", title: "Event 2", date: "2024-08-15", color: "#33FF57" }, // Example: green
+  { id: "3", title: "Event 3", date: "2024-08-15", color: "#3357FF" }, // Example: blue
+  { id: "4", title: "Event 4", date: "2024-08-15", color: "#FF33A5" }, // Example: pink
+]
+
+function App() {
+  const handleDateClick = (day: Date) => {
+    console.log("Date clicked:", day)
+  }
+
+  const handleEventClick = (event: any) => {
+    console.log(event)
+  }
+
+  return (
+    <div className="App">
+        <BigCalendar
+          events={events}
+          onDateClick={handleDateClick}
+          onEventClick={handleEventClick}
+          renderHeader={(currentDate, prevMonth, nextMonth, setCurrentDate) => (
+            <CustomHeader currentDate={currentDate} prevMonth={prevMonth} nextMonth={nextMonth} setCurrentDate={setCurrentDate} />
+          )}
+        />
+    </div>
+  )
+}
+
+export default App
 ```
+
 
 # License
 
