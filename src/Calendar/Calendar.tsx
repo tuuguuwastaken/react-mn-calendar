@@ -26,7 +26,7 @@ interface Event {
 
 interface BigCalendarProps {
   events: Event[]
-  renderHeader?: (currentDate: Date, prevMonth: () => void, nextMonth: () => void, setCurrentDate: (date: Date) => void) => ReactNode
+  renderHeader?: (currentDate: () => string, prevMonth: () => void, nextMonth: () => void, setCurrentDate: (date: Date) => void) => ReactNode
   onDateClick?: (day: Date) => void // New callback prop
   onEventClick?: (event: Event) => void
 }
@@ -159,9 +159,14 @@ const BigCalendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateC
     setCurrentDate(startOfDay(subMonths(currentDate, 1)))
   }
 
+  const returnedCurrentDate = ():string => {
+    const dateFormat = "MMMM yyyy"
+    return format(currentDate, dateFormat, { locale: mn })
+  }
+
   return (
     <div className="big-calendar">
-      {renderHeader ? renderHeader(currentDate, prevMonth, nextMonth, setCurrentDate) : renderDefaultHeader()}
+      {renderHeader ? renderHeader(returnedCurrentDate, prevMonth, nextMonth, setCurrentDate) : renderDefaultHeader()}
       {renderDays()}
       {renderCells()}
     </div>
