@@ -25,7 +25,7 @@ You can import and use the Calendar and SmallCalendar components as follows:
 ```js
 import React from 'react';
 import { Calendar, SmallCalendar } from 'react-mn-calendar';
-import 'react-mn-calendar/dist/BigCalendar/CalendarStyle.css'; // Import styles for Calendar
+import 'react-mn-calendar/dist/Calendar/CalendarStyle.css'; // Import styles for Calendar
 import 'react-mn-calendar/dist/SmallCalendar/CalendarStyle.css'; // Import styles for SmallCalendar
 
 const App = () => {
@@ -58,15 +58,17 @@ export default App;
   - title (string): Title of the event.
   - date (string): Event date in ISO string format.
   - color (string, optional): Background color for the event.
+  - data (any, optional): add Data to your object if need be.
 
 
 **Calendar Props**
  - onDateClick: return a Date object
  - onEventClick: returns a Event object as mention in the Event Props section
- - renderHeader : function to render your own header for the calendar (**only on the Large Calendar**)
+ - renderHeader : function to render your own header for the calendar (**only on the normal Calendar**)
 
 
 **Example:**
+## Custom Header example
 ```js
 
 interface CustomHeaderProps {
@@ -83,20 +85,23 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ currentDate, prevMonth, nex
   return (
     <div className="custom-header">
       <button onClick={prevMonth}>Previous</button>
-      <span>{UpperCaseFirstLetter(format(currentDate, "MMMM yyyy"))}</span>
+      <span>{currentDate}</span>
       <button onClick={nextMonth}>Next</button>
       <button onClick={() => setCurrentDate(new Date())}>Today</button>
     </div>
   )
 }
-const events = [
-  { id: "1", title: "Event 1", date: "2024-08-10", color: "#FF5733" }, // Example: red-orange
-  { id: "2", title: "Event 2", date: "2024-08-15", color: "#33FF57" }, // Example: green
-  { id: "3", title: "Event 3", date: "2024-08-15", color: "#3357FF" }, // Example: blue
-  { id: "4", title: "Event 4", date: "2024-08-15", color: "#FF33A5" }, // Example: pink
-]
+
 
 function App() {
+
+  const events = [
+    { id: "1", title: "Event 1", date: "2024-08-10", color: "#FF5733" }, // Example: red-orange
+    { id: "2", title: "Event 2", date: "2024-08-15", color: "#33FF57" }, // Example: green
+    { id: "3", title: "Event 3", date: "2024-08-15", color: "#3357FF" }, // Example: blue
+    { id: "4", title: "Event 4", date: "2024-08-15", color: "#FF33A5" }, // Example: pink
+  ]
+
   const handleDateClick = (day: Date) => {
     console.log("Date clicked:", day)
   }
@@ -125,7 +130,7 @@ export default App
 
 # License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License.
 
 **Contributing**
 
