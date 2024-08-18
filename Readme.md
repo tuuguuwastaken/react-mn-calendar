@@ -1,19 +1,19 @@
 # Big Calendar React
 
-`big-calendar-react` is a customizable React calendar component library that includes two calendar components: `Calendar` and `SmallCalendar`. This library provides flexible calendar solutions with easy integration and style customization.
+`react-mn-calendar` is a customizable React calendar component library that includes two calendar components: `Calendar` and `SmallCalendar`. This library provides flexible calendar solutions with easy integration and style customization.
 
 ## Installation
 
-To install `big-calendar-react` in your React project, use npm or yarn:
+To install `react-mn-calendar` in your React project, use npm or yarn:
 
 ```bash
-npm install big-calendar-react
+npm install react-mn-calendar
 ```
 
 or
 
 ```bash
-yarn add big-calendar-react
+yarn add react-mn-calendar
 ```
 
 # Usage
@@ -24,9 +24,9 @@ You can import and use the Calendar and SmallCalendar components as follows:
 
 ```js
 import React from 'react';
-import { Calendar, SmallCalendar } from 'big-calendar-react';
-import 'big-calendar-react/dist/BigCalendar/CalendarStyle.css'; // Import styles for Calendar
-import 'big-calendar-react/dist/SmallCalendar/CalendarStyle.css'; // Import styles for SmallCalendar
+import { Calendar, SmallCalendar } from 'react-mn-calendar';
+import 'react-mn-calendar/dist/BigCalendar/CalendarStyle.css'; // Import styles for Calendar
+import 'react-mn-calendar/dist/SmallCalendar/CalendarStyle.css'; // Import styles for SmallCalendar
 
 const App = () => {
   const events = [
