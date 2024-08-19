@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.3.0...v1.3.1) (2024-08-19)
+
+
+### Bug Fixes
+
+* changed DatePicker to SmallCalendar ([3414e28](https://github.com/tuuguuwastaken/react-mn-calendar/commit/3414e286ff0d25be9ad9b4e7d00084131b8f6171))
+
 # [1.3.0](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.4...v1.3.0) (2024-08-19)
 
 
