@@ -2,9 +2,8 @@
   "name": "react-mn-calendar",
   "version": "1.2.2",
   "description": "React calendar library with Mongolian localization",
-  "main": "dist/index.ts",
-  "module": "dist/index.d.ts",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc && cp src/CalendarStyle.css dist/CalendarStyle.css",
     "release": "semantic-release"
