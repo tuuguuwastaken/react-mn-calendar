@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.0...v1.2.1) (2024-08-19)
+
+
+### Bug Fixes
+
+* bad versioning ([995d1d1](https://github.com/tuuguuwastaken/react-mn-calendar/commit/995d1d1622e383178326d0ec47a2dbe70eecca41))
+
 # 1.0.0 (2024-08-16)
 
 
