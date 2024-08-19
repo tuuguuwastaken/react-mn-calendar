@@ -1,6 +1,6 @@
 {
   "name": "react-mn-calendar",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "React calendar library with Mongolian localization",
   "main": "./dist/index.d.ts",
   "types": "./dist/index.d.ts",

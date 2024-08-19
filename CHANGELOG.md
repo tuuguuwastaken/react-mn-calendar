@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.3...v1.2.4) (2024-08-19)
+
+
+### Bug Fixes
+
+* package file settings ([695fd7d](https://github.com/tuuguuwastaken/react-mn-calendar/commit/695fd7d304e7ea8b5368f636972932b4cec9f2a9))
+
 ## [1.2.3](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.2...v1.2.3) (2024-08-19)
 
 
