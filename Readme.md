@@ -72,7 +72,7 @@ export default App;
 ```js
 
 interface CustomHeaderProps {
-  currentDate: Date
+  currentDate: () => string
   prevMonth: () => void
   nextMonth: () => void
   setCurrentDate: (date: Date) => void
@@ -85,7 +85,7 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ currentDate, prevMonth, nex
   return (
     <div className="custom-header">
       <button onClick={prevMonth}>Previous</button>
-      <span>{currentDate}</span>
+      <span>{currentDate()}</span>
       <button onClick={nextMonth}>Next</button>
       <button onClick={() => setCurrentDate(new Date())}>Today</button>
     </div>

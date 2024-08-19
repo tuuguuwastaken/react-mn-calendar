@@ -1,6 +1,0 @@
-{
-  "changelog": true,
-  "skip": {
-    "tag": true
-  }
-}
