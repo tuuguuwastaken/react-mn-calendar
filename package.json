@@ -3,15 +3,23 @@
   "version": "1.2.2",
   "description": "React calendar library with Mongolian localization",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc && cp src/CalendarStyle.css dist/CalendarStyle.css",
     "release": "semantic-release"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
+  },
   "keywords": [
     "react",
     "calendar",
-    "component"
+    "component",
+    "Mongolian"
   ],
   "author": "IzTuugii",
   "license": "MIT",
@@ -26,15 +34,13 @@
     "@types/react-dom": "^18.3.0",
     "eslint": "^6.8.0",
     "prettier": "^3.3.3",
-    "rollup": "^1.32.1",
-    "rollup-plugin-typescript2": "^0.36.0",
     "semantic-release": "^24.0.0",
     "tsdx": "^0.14.1",
     "typescript": "^5.5.4"
   },
   "dependencies": {
     "date-fns": "^3.6.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

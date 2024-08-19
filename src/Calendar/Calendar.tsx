@@ -31,7 +31,7 @@ interface BigCalendarProps {
   onEventClick?: (event: Event) => void
 }
 
-const BigCalendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClick, onEventClick }) => {
+const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClick, onEventClick }) => {
   const [currentDate, setCurrentDate] = useState(startOfDay(new Date())) // Ensure the date is set to start of day
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
@@ -173,4 +173,4 @@ const BigCalendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateC
   )
 }
 
-export default BigCalendar
+export default Calendar
