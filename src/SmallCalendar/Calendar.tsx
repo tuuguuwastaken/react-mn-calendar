@@ -20,7 +20,7 @@ interface Theme {
   onClickDate: (val: Date) => void;
 }
 
-const DatePicker: React.FC<Theme> = ({ mainColor = '#007bff', onClickDate}) => {
+const SmallCalendar: React.FC<Theme> = ({ mainColor = '#007bff', onClickDate}) => {
   const [currentDate, setCurrentDate] = useState(startOfDay(new Date()));
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
@@ -122,11 +122,11 @@ const DatePicker: React.FC<Theme> = ({ mainColor = '#007bff', onClickDate}) => {
   };
 
   const nextMonth = () => {
-    setCurrentDate(startOfDay(addMonths(currentDate, 1))); // Ensure the month change is normalized
+    setCurrentDate(startOfDay(addMonths(currentDate, 1)));
   };
 
   const prevMonth = () => {
-    setCurrentDate(startOfDay(subMonths(currentDate, 1))); // Ensure the month change is normalized
+    setCurrentDate(startOfDay(subMonths(currentDate, 1)));
   };
 
   return (
@@ -138,4 +138,4 @@ const DatePicker: React.FC<Theme> = ({ mainColor = '#007bff', onClickDate}) => {
   );
 };
 
-export default DatePicker;
+export default SmallCalendar;

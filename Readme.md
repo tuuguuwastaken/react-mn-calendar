@@ -20,11 +20,11 @@ yarn add react-mn-calendar
 
 ## Importing components
 
-You can import and use the Calendar and DatePicker components as follows:
+You can import and use the Calendar and SmallCalendar components as follows:
 
 ```js
 import React from 'react';
-import { Calendar, DatePicker } from 'react-mn-calendar';
+import { Calendar, SmallCalendar } from 'react-mn-calendar';
 import 'react-mn-calendar/dist/Calendar/CalendarStyle.css'; // Import styles for Calendar
 import 'react-mn-calendar/dist/SmallCalendar/CalendarStyle.css'; // Import styles for SmallCalendar
 
@@ -40,7 +40,7 @@ const App = () => {
     <div>
       <h1>My Calendar App</h1>
       <Calendar events={events} />
-      <DatePicker events={events} />
+      <SmallCalendar  events={events} />
     </div>
   );
 };
