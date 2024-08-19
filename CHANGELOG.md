@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.1...v1.2.2) (2024-08-19)
+
+
+### Bug Fixes
+
+* importing error fix ([24f644d](https://github.com/tuuguuwastaken/react-mn-calendar/commit/24f644d3f3ef785407581bca496abbd729da241d))
+
 ## [1.2.1](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.0...v1.2.1) (2024-08-19)
 
 
