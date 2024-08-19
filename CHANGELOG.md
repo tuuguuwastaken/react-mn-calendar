@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.4...v1.3.0) (2024-08-19)
+
+
+### Features
+
+* better demo web made with vite react ([5e40b28](https://github.com/tuuguuwastaken/react-mn-calendar/commit/5e40b2830243a445a6087d6ff1aac244e60a3bb8))
+
 ## [1.2.4](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.3...v1.2.4) (2024-08-19)
 
 
