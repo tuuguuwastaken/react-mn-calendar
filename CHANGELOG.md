@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.2...v1.2.3) (2024-08-19)
+
+
+### Bug Fixes
+
+* package.json change ([c36372a](https://github.com/tuuguuwastaken/react-mn-calendar/commit/c36372a40b70c05f69663046516fe36d3298ff3b))
+
 ## [1.2.2](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.2.1...v1.2.2) (2024-08-19)
 
 
