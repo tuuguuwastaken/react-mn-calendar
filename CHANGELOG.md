@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.3.1...v1.4.0) (2024-08-20)
+
+
+### Features
+
+* added Event to Small calendar ([859a26a](https://github.com/tuuguuwastaken/react-mn-calendar/commit/859a26a1c6e9d8db7055fdc318967201802bee3a))
+* added Month Calendar (use with caution may give kanker ([49398ff](https://github.com/tuuguuwastaken/react-mn-calendar/commit/49398ff801465898759d82d1178c56f9ea1352d7))
+* weekday color added on Main calendar ([dcfad95](https://github.com/tuuguuwastaken/react-mn-calendar/commit/dcfad953ae30158c1b6ef9c0ac253adcad2810ee))
+
 ## [1.3.1](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.3.0...v1.3.1) (2024-08-19)
 
 
