@@ -98,6 +98,69 @@
   color: #ccc;
 }
 
+.month-picker {
+  width: 350px;
+  margin: 0 auto;
+  border: 1px solid #e0e0e0;
+  max-width: 450px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+.month-picker .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #f0f0f0;
+  height: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.month-picker .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: calc(100% / 7);
+  padding: 10px 0;
+}
+.month-picker .icon {
+  cursor: pointer;
+}
+.month-picker .days {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0px;
+  background-color: #f9f9f9;
+}
+.month-picker .body {
+  padding: 8px 16px;
+}
+.month-picker .row {
+  display: flex;
+  justify-content: space-between;
+}
+.month-picker .cell {
+  width: calc(100% / 7);
+  padding: 16px 0;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+.month-picker .cell:hover {
+  background-color: #f0f0f0;
+}
+.month-picker .cell.disabled {
+  color: #ccc;
+  cursor: default;
+}
+.month-picker .cell.selected {
+  background-color: #007bff;
+  color: white;
+}
+.month-picker .number {
+  font-weight: bold;
+}
+
 .small-calendar {
   width: 350px;
   margin: 0 auto;
@@ -157,5 +220,32 @@
   color: white;
 }
 .small-calendar .number {
+  font-weight: bold;
+}
+
+.month-picker  .months {
+  display: flex;
+  flex-direction: column;
+}
+
+.month-picker  .row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.month-picker  .col {
+  flex: 1;
+  padding: 8px;
+  text-align: center;
+}
+
+.month-picker  .cell {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.month-picker .selected {
   font-weight: bold;
 }
