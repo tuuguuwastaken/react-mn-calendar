@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.4.0...v1.5.0) (2024-08-20)
+
+
+### Features
+
+* update readme ([148fc85](https://github.com/tuuguuwastaken/react-mn-calendar/commit/148fc85eba9a741b0db7eee667990b8670d1a4e3))
+
 # [1.4.0](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.3.1...v1.4.0) (2024-08-20)
 
 
