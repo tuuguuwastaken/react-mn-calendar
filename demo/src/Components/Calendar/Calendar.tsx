@@ -37,9 +37,8 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
     const luminance = getLuminance(hexColor)
     return luminance < 128
   }
-  
-  const textColors = isDarkColor(mainColor ?? "") ? "#FFFFFF" : "#000000"
 
+  const textColors = isDarkColor(mainColor ?? "") ? "#FFFFFF" : "#000000"
 
   const renderDefaultHeader = () => {
     const dateFormat = "MMMM yyyy"
@@ -74,7 +73,11 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
       )
     }
 
-    return <div className="days row" style={{backgroundColor: mainColor ? mainColor : "",color:textColors}}>{days}</div>
+    return (
+      <div className="days row" style={{ backgroundColor: mainColor ? mainColor : "", color: textColors }}>
+        {days}
+      </div>
+    )
   }
 
   const renderCells = () => {
@@ -91,6 +94,10 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
       const eventsForDay = events.filter((event) => isSameDay(parseISO(event.date), currentDay))
       const isSelected = selectedDate && isSameDay(currentDay, selectedDate)
 
+      // Determine the events to show and how many more events exist
+      const eventsToShow = eventsForDay.slice(0, 4)
+      const extraEventsCount = eventsForDay.length - eventsToShow.length
+
       days.push(
         <div
           className={`col cell ${!isSameMonth(currentDay, monthStart) ? "disabled" : isSelected ? "selected" : ""}`}
@@ -99,19 +106,23 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
         >
           <span className="number">{format(currentDay, dateFormat)}</span>
           <div className="events-container">
-            {eventsForDay.map((event) => (
-              <div
-                key={event.id}
-                className="event"
-                style={{ backgroundColor: event.color ? event.color : "" }}
-                onClick={(e) => {
-                  e.stopPropagation()
-                  handleEventClick(event)
-                }}
-              >
-                {event.title}
-              </div>
-            ))}
+            {eventsToShow.map((event) => {
+              const textColor = "#000000"
+              return (
+                <div
+                  key={event.id}
+                  className="event"
+                  style={{ backgroundColor:`${event.color ? event.color : ""}`, color: textColor }}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleEventClick(event)
+                  }}
+                >
+                  {event.title}
+                </div>
+              )
+            })}
+            {extraEventsCount > 0 && <div className="more-events" style={{fontSize:4}}>+{extraEventsCount}</div>}
           </div>
         </div>
       )
