@@ -62,6 +62,7 @@ export default App;
 
 
 **Calendar Props**
+ - mainColor: theme main color (optional)
  - onDateClick: return a Date object
  - onEventClick: returns a Event object as mention in the Event Props section
  - renderHeader : function to render your own header for the calendar (**only on the normal Calendar**)
