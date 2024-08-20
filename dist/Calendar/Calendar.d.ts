@@ -12,6 +12,7 @@ interface BigCalendarProps {
     renderHeader?: (currentDate: () => string, prevMonth: () => void, nextMonth: () => void, setCurrentDate: (date: Date) => void) => ReactNode;
     onDateClick?: (day: Date) => void;
     onEventClick?: (event: Event) => void;
+    mainColor?: string | null;
 }
 declare const Calendar: React.FC<BigCalendarProps>;
 export default Calendar;
