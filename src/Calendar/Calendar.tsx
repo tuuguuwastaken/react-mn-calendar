@@ -1,16 +1,5 @@
 import React, { useState, ReactNode } from "react"
-import {
-  format,
-  addMonths,
-  subMonths,
-  startOfWeek,
-  addDays,
-  startOfMonth,
-  isSameMonth,
-  isSameDay,
-  parseISO,
-  startOfDay,
-} from "date-fns"
+import { format, addMonths, subMonths, startOfWeek, addDays, startOfMonth, isSameMonth, isSameDay, parseISO, startOfDay } from "date-fns"
 import { mn } from "date-fns/locale"
 import "../CalendarStyle.css"
 
@@ -27,11 +16,30 @@ interface BigCalendarProps {
   renderHeader?: (currentDate: () => string, prevMonth: () => void, nextMonth: () => void, setCurrentDate: (date: Date) => void) => ReactNode
   onDateClick?: (day: Date) => void
   onEventClick?: (event: Event) => void
+  mainColor?: string | null
 }
 
-const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClick, onEventClick }) => {
+const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClick, onEventClick, mainColor = "#007bff" }) => {
   const [currentDate, setCurrentDate] = useState(startOfDay(new Date()))
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+
+  const getLuminance = (hexColor: string): number => {
+    const r = parseInt(hexColor.slice(1, 3), 16)
+    const g = parseInt(hexColor.slice(3, 5), 16)
+    const b = parseInt(hexColor.slice(5, 7), 16)
+
+    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+    return luminance
+  }
+
+  const isDarkColor = (hexColor: string): boolean => {
+    const luminance = getLuminance(hexColor)
+    return luminance < 128
+  }
+  
+  const textColors = isDarkColor(mainColor ?? "") ? "#FFFFFF" : "#000000"
+
 
   const renderDefaultHeader = () => {
     const dateFormat = "MMMM yyyy"
@@ -44,7 +52,7 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
           </div>
         </div>
         <div className="col col-center">
-          <span style={{ fontSize: 42 }}>{format(currentDate, dateFormat, { locale: mn })}</span>
+          <span style={{ fontSize: 42 }}>{capitalizeFirstLetter(format(currentDate, dateFormat, { locale: mn }))}</span>
         </div>
         <div className="col col-end" onClick={nextMonth}>
           <div className="icon">{`>`}</div>
@@ -66,7 +74,7 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
       )
     }
 
-    return <div className="days row">{days}</div>
+    return <div className="days row" style={{backgroundColor: mainColor ? mainColor : "",color:textColors}}>{days}</div>
   }
 
   const renderCells = () => {
@@ -123,6 +131,10 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
     return <div className="body">{rows}</div>
   }
 
+  const capitalizeFirstLetter = (string: string): string => {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
   const handleDateClick = (day: Date) => {
     setSelectedDate(day)
     if (onDateClick) {
@@ -146,7 +158,7 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
 
   const returnedCurrentDate = (): string => {
     const dateFormat = "MMMM yyyy"
-    return format(currentDate, dateFormat, { locale: mn })
+    return capitalizeFirstLetter(format(currentDate, dateFormat, { locale: mn }))
   }
 
   return (
