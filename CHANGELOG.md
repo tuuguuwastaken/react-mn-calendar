@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.5.0...v1.5.1) (2024-08-20)
+
+
+### Bug Fixes
+
+* export missing ([dabb790](https://github.com/tuuguuwastaken/react-mn-calendar/commit/dabb7901d5fd2abc12f22cb8358e13b848740d50))
+
 # [1.5.0](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.4.0...v1.5.0) (2024-08-20)
 
 
