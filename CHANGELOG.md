@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.6.0...v1.6.1) (2024-08-22)
+
+
+### Bug Fixes
+
+* build ([67e14fb](https://github.com/tuuguuwastaken/react-mn-calendar/commit/67e14fbb11665b35c56e7a9701e9c3084aaa3e75))
+
 # [1.6.0](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.5.1...v1.6.0) (2024-08-22)
 
 
