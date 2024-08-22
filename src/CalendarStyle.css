@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   margin: 0 16px;
 }
 .big-calendar .header {
@@ -33,7 +34,7 @@
 .big-calendar .cell.disabled {
   color: #ccc;
   cursor: default;
-}
+} 
 
 .big-calendar .number {
   position: absolute;
