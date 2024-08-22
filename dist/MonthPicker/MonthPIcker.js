@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { format, addMonths, subMonths, startOfYear, startOfMonth } from "date-fns";
 import { mn } from "date-fns/locale";
 import "../CalendarStyle.css";
-const MonthPicker = ({ mainColor = "#007bff", onClickMonth }) => {
+const MonthPicker = ({ mainColor = "#007bff", onClickMonth, selectAble = true }) => {
     const [currentDate, setCurrentDate] = useState(startOfMonth(new Date()));
     const [selectedDate, setSelectedDate] = useState(null);
     const UpperCaseFirstLetter = (string) => {
@@ -35,11 +35,16 @@ const MonthPicker = ({ mainColor = "#007bff", onClickMonth }) => {
         const dateFormat = "yyyy";
         return (React.createElement("div", { className: "header row flex-middle", style: { backgroundColor: mainColor ? mainColor : "", color: textColors } },
             React.createElement("div", { className: "col col-start" },
-                React.createElement("div", { className: "icon", onClick: prevYear }, `<`)),
+                React.createElement("div", { className: "icon", onClick: prevYear },
+                    React.createElement("strong", null, `<`))),
             React.createElement("div", { className: "col col-center" },
-                React.createElement("span", null, UpperCaseFirstLetter(format(currentDate, dateFormat, { locale: mn })))),
+                React.createElement("span", null,
+                    React.createElement("strong", null,
+                        UpperCaseFirstLetter(format(currentDate, dateFormat, { locale: mn })),
+                        " \u043E\u043D"))),
             React.createElement("div", { className: "col col-end", onClick: nextYear },
-                React.createElement("div", { className: "icon" }, `>`))));
+                React.createElement("div", { className: "icon" },
+                    React.createElement("strong", null, `>`)))));
     };
     const renderMonths = () => {
         const rows = [];
@@ -52,11 +57,14 @@ const MonthPicker = ({ mainColor = "#007bff", onClickMonth }) => {
                 startOfMonth(monthDate).getMonth() === selectedDate.getMonth() &&
                 startOfMonth(monthDate).getFullYear() === selectedDate.getFullYear();
             const textColors = isDarkColor(lightenColor(mainColor !== null && mainColor !== void 0 ? mainColor : "", 60)) ? "#FFFFFF" : "#000000";
-            const monthCell = (React.createElement("div", { className: `col cell ${isSelected ? "selected" : ""}`, style: {
+            const monthCell = (React.createElement(React.Fragment, null, selectAble ? (React.createElement("div", { className: `col cell ${isSelected ? "selected" : ""}`, style: {
                     backgroundColor: isSelected ? lightenColor(mainColor !== null && mainColor !== void 0 ? mainColor : "", 60) : "",
                     color: textColors,
                 }, key: monthDate.toString(), onClick: () => onMonthClick(monthDate) },
-                React.createElement("span", { className: "number" }, format(monthDate, dateFormat, { locale: mn }))));
+                React.createElement("span", { className: "number" }, format(monthDate, dateFormat, { locale: mn })))) : (React.createElement("div", { className: `col cell`, style: {
+                    color: textColors,
+                }, key: monthDate.toString(), onClick: () => onMonthClick(monthDate) },
+                React.createElement("span", { className: "number" }, format(monthDate, dateFormat, { locale: mn }))))));
             if (i % 4 === 0 && months.length > 0) {
                 rows.push(React.createElement("div", { className: "row", key: `row-${i / 4}` }, months));
                 months = [];

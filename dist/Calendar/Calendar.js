@@ -49,21 +49,23 @@ const Calendar = ({ events, renderHeader, onDateClick, onEventClick, mainColor =
             const eventsForDay = events.filter((event) => isSameDay(parseISO(event.date), currentDay));
             const isSelected = selectedDate && isSameDay(currentDay, selectedDate);
             // Determine the events to show and how many more events exist
-            const eventsToShow = eventsForDay.slice(0, 4);
+            const eventsToShow = eventsForDay.slice(0, 3);
             const extraEventsCount = eventsForDay.length - eventsToShow.length;
             days.push(React.createElement("div", { className: `col cell ${!isSameMonth(currentDay, monthStart) ? "disabled" : isSelected ? "selected" : ""}`, key: currentDay.toISOString(), onClick: () => handleDateClick(currentDay) },
                 React.createElement("span", { className: "number" }, format(currentDay, dateFormat)),
-                React.createElement("div", { className: "events-container" },
+                React.createElement("div", { className: "events-container", style: { marginTop: 10 } },
                     eventsToShow.map((event) => {
-                        const textColor = "#000000";
-                        return (React.createElement("div", { key: event.id, className: "event", style: { backgroundColor: `${event.color ? event.color : ""}`, color: textColor }, onClick: (e) => {
+                        var _a;
+                        const textColors = isDarkColor((_a = event.color) !== null && _a !== void 0 ? _a : "") ? "#FFFFFF" : "#000000";
+                        return (React.createElement("div", { key: event.id, className: "event", style: { backgroundColor: `${event.color ? event.color : ""}`, color: textColors }, onClick: (e) => {
                                 e.stopPropagation();
                                 handleEventClick(event);
                             } }, event.title));
                     }),
-                    extraEventsCount > 0 && React.createElement("div", { className: "more-events", style: { fontSize: 4 } },
-                        "+",
-                        extraEventsCount))));
+                    extraEventsCount > 0 && (React.createElement("div", { className: "more-events", style: { fontSize: 10, position: "absolute", marginTop: -88 } },
+                        React.createElement("strong", null,
+                            "+",
+                            extraEventsCount))))));
             if (days.length === 7) {
                 rows.push(React.createElement("div", { className: "row", key: currentDay.toISOString() }, days));
                 days = [];
