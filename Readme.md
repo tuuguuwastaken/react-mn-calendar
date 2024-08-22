@@ -24,23 +24,52 @@ You can import and use the Calendar and SmallCalendar components as follows:
 
 ```js
 import React from 'react';
-import { Calendar, SmallCalendar } from 'react-mn-calendar';
-import 'react-mn-calendar/dist/Calendar/CalendarStyle.css'; // Import styles for Calendar
-import 'react-mn-calendar/dist/SmallCalendar/CalendarStyle.css'; // Import styles for SmallCalendar
+import { Calendar, SmallCalendar, MonthPicker } from 'react-mn-calendar';
 
 const App = () => {
-  const events = [
-    { id: '1', title: 'Event 1', date: '2024-08-10', color: '#ff0000' },
-    { id: '2', title: 'Event 2', date: '2024-08-15', color: '#00ff00' },
-    { id: '3', title: 'Event 3', date: '2024-08-15', color: '#0000ff' },
-    { id: '4', title: 'Event 4', date: '2024-08-15', color: '#ffff00' }
-  ];
+    const SmallCalendarExampleEvents = [
+    { date: new Date(2024, 7, 20), color: "#ff0000" },
+    { date: new Date(2024, 7, 22), color: "#00ff00" },
+    { date: new Date(2024, 7, 22), color: "#00ff00" },
+    { date: new Date(2024, 7, 21) },
+    { date: new Date(2024, 7, 25) },
+    { date: new Date(2024, 7, 22), color: "#00ff00" },
+  ]
+  const CalendarExampleEvents = [
+    {
+      id: "1",
+      title: "Meeting with Team",
+      date: "2024-08-25T10:00:00Z",
+      color: "#33FF57",
+      data: {
+        location: "Conference Room A",
+        attendees: ["John Doe", "Jane Smith", "Michael Brown"],
+        description: "Discuss the Q3 project updates and deliverables.",
+      },
+    },
+    {
+      id: "2",
+      title: "Doctor's Appointment",
+      date: "2024-08-26T14:30:00Z",
+      color: "#33FF57",
+      data: {
+        location: "Downtown Clinic",
+        doctor: "Dr. Emily Clark",
+        notes: "Routine check-up.",
+      },
+    },
+  ]
 
   return (
     <div>
       <h1>My Calendar App</h1>
-      <Calendar events={events} />
-      <SmallCalendar  events={events} />
+      <Calendar events={CalendarExampleEvents} />
+      <SmallCalendar  events={SmallCalendarExampleEvents} />
+       <MonthPicker
+            onClickMonth={function (val: Date): void {
+              console.log(val)
+            }}
+          />
     </div>
   );
 };
@@ -54,22 +83,25 @@ export default App;
 ## The Calendar component displays a full-sized calendar view.
 
 **Event Props:**
-  - id (string): Unique identifier for the event.
-  - title (string): Title of the event.
-  - date (string): Event date in ISO string format.
-  - color (string, optional): Background color for the event.
-  - data (any, optional): add Data to your object if need be.
 
+- id (string): Unique identifier for the event.
+- title (string): Title of the event.
+- date (string): Event date in ISO string format.
+- color (string, optional): Background color for the event.
+- data (any, optional): add Data to your object if need be.
 
 **Calendar Props**
- - mainColor: theme main color (optional)
- - onDateClick: return a Date object
- - onEventClick: returns a Event object as mention in the Event Props section
- - renderHeader : function to render your own header for the calendar (**only on the normal Calendar**)
 
+- mainColor: theme main color (optional)
+- onDateClick: return a Date object
+- onEventClick: returns a Event object as mention in the Event Props section
+- renderHeader : function to render your own header for the calendar (**only on the normal Calendar**)
+- onMonthClick : return clicked month Date (MonthPicker only)
 
 **Example:**
+
 ## Custom Header example
+
 ```js
 
 interface CustomHeaderProps {
@@ -127,7 +159,6 @@ function App() {
 
 export default App
 ```
-
 
 # License
 
