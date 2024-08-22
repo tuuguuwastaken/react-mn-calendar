@@ -1,14 +1,15 @@
 import React, { useState } from "react"
-import { format, addMonths, subMonths, startOfYear, endOfYear, startOfMonth, endOfMonth } from "date-fns"
+import { format, addMonths, subMonths, startOfYear, startOfMonth } from "date-fns"
 import { mn } from "date-fns/locale"
 import "../CalendarStyle.css"
 
 interface Theme {
   mainColor?: string | null
   onClickMonth: (val: Date) => void
+  selectAble?: boolean | null
 }
 
-const MonthPicker: React.FC<Theme> = ({ mainColor = "#007bff", onClickMonth }) => {
+const MonthPicker: React.FC<Theme> = ({ mainColor = "#007bff", onClickMonth, selectAble = true }) => {
   const [currentDate, setCurrentDate] = useState(startOfMonth(new Date()))
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
@@ -54,14 +55,18 @@ const MonthPicker: React.FC<Theme> = ({ mainColor = "#007bff", onClickMonth }) =
       <div className="header row flex-middle" style={{ backgroundColor: mainColor ? mainColor : "", color: textColors }}>
         <div className="col col-start">
           <div className="icon" onClick={prevYear}>
-            {`<`}
+            <strong>{`<`}</strong>
           </div>
         </div>
         <div className="col col-center">
-          <span>{UpperCaseFirstLetter(format(currentDate, dateFormat, { locale: mn }))}</span>
+          <span>
+            <strong>{UpperCaseFirstLetter(format(currentDate, dateFormat, { locale: mn }))} он</strong>
+          </span>
         </div>
         <div className="col col-end" onClick={nextYear}>
-          <div className="icon">{`>`}</div>
+          <div className="icon">
+            <strong>{`>`}</strong>
+          </div>
         </div>
       </div>
     )
@@ -79,21 +84,36 @@ const MonthPicker: React.FC<Theme> = ({ mainColor = "#007bff", onClickMonth }) =
         selectedDate &&
         startOfMonth(monthDate).getMonth() === selectedDate.getMonth() &&
         startOfMonth(monthDate).getFullYear() === selectedDate.getFullYear()
-      
+
       const textColors = isDarkColor(lightenColor(mainColor ?? "", 60)) ? "#FFFFFF" : "#000000"
 
       const monthCell = (
-        <div
-          className={`col cell ${isSelected ? "selected" : ""}`}
-          style={{
-            backgroundColor: isSelected ? lightenColor(mainColor ?? "", 60) : "",
-            color:textColors,
-          }}
-          key={monthDate.toString()}
-          onClick={() => onMonthClick(monthDate)}
-        >
-          <span className="number">{format(monthDate, dateFormat, { locale: mn })}</span>
-        </div>
+        <>
+          {selectAble ? (
+            <div
+              className={`col cell ${isSelected ? "selected" : ""}`}
+              style={{
+                backgroundColor: isSelected ? lightenColor(mainColor ?? "", 60) : "",
+                color: textColors,
+              }}
+              key={monthDate.toString()}
+              onClick={() => onMonthClick(monthDate)}
+            >
+              <span className="number">{format(monthDate, dateFormat, { locale: mn })}</span>
+            </div>
+          ) : (
+            <div
+              className={`col cell`}
+              style={{
+                color: textColors,
+              }}
+              key={monthDate.toString()}
+              onClick={() => onMonthClick(monthDate)}
+            >
+              <span className="number">{format(monthDate, dateFormat, { locale: mn })}</span>
+            </div>
+          )}
+        </>
       )
 
       if (i % 4 === 0 && months.length > 0) {
