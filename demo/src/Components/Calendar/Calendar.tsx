@@ -23,6 +23,22 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
   const [currentDate, setCurrentDate] = useState(startOfDay(new Date()))
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
+
+  const lightenColor = (hexColor: string, percent: number): string => {
+    const num = parseInt(hexColor.replace("#", ""), 16)
+    const amt = Math.round(2.55 * percent)
+    const R = (num >> 16) + amt
+    const G = ((num >> 8) & 0x00ff) + amt
+    const B = (num & 0x0000ff) + amt
+
+    return (
+      "#" +
+      (0x1000000 + (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 + (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 + (B < 255 ? (B < 1 ? 0 : B) : 255))
+        .toString(16)
+        .slice(1)
+    )
+  }
+
   const getLuminance = (hexColor: string): number => {
     const r = parseInt(hexColor.slice(1, 3), 16)
     const g = parseInt(hexColor.slice(3, 5), 16)
@@ -95,7 +111,7 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
       const isSelected = selectedDate && isSameDay(currentDay, selectedDate)
 
       // Determine the events to show and how many more events exist
-      const eventsToShow = eventsForDay.slice(0, 4)
+      const eventsToShow = eventsForDay.slice(0, 3)
       const extraEventsCount = eventsForDay.length - eventsToShow.length
 
       days.push(
@@ -105,14 +121,14 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
           onClick={() => handleDateClick(currentDay)}
         >
           <span className="number">{format(currentDay, dateFormat)}</span>
-          <div className="events-container">
+          <div className="events-container" style={{ marginTop: 10 }}>
             {eventsToShow.map((event) => {
-              const textColor = "#000000"
+              const textColors = isDarkColor(event.color ?? "") ? "#FFFFFF" : "#000000"
               return (
                 <div
                   key={event.id}
                   className="event"
-                  style={{ backgroundColor:`${event.color ? event.color : ""}`, color: textColor }}
+                  style={{ backgroundColor: `${event.color ? event.color : ""}`, color: textColors }}
                   onClick={(e) => {
                     e.stopPropagation()
                     handleEventClick(event)
@@ -122,7 +138,11 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
                 </div>
               )
             })}
-            {extraEventsCount > 0 && <div className="more-events" style={{fontSize:4}}>+{extraEventsCount}</div>}
+            {extraEventsCount > 0 && (
+              <div className="more-events" style={{ fontSize: 10, position: "absolute", marginTop: -88 }}>
+                <strong>+{extraEventsCount}</strong>
+              </div>
+            )}
           </div>
         </div>
       )
