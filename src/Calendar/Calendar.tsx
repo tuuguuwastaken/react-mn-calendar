@@ -23,6 +23,7 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
   const [currentDate, setCurrentDate] = useState(startOfDay(new Date()))
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
+
   const getLuminance = (hexColor: string): number => {
     const r = parseInt(hexColor.slice(1, 3), 16)
     const g = parseInt(hexColor.slice(3, 5), 16)
@@ -95,7 +96,7 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
       const isSelected = selectedDate && isSameDay(currentDay, selectedDate)
 
       // Determine the events to show and how many more events exist
-      const eventsToShow = eventsForDay.slice(0, 4)
+      const eventsToShow = eventsForDay.slice(0, 3)
       const extraEventsCount = eventsForDay.length - eventsToShow.length
 
       days.push(
@@ -105,14 +106,14 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
           onClick={() => handleDateClick(currentDay)}
         >
           <span className="number">{format(currentDay, dateFormat)}</span>
-          <div className="events-container">
+          <div className="events-container" style={{ marginTop: 10 }}>
             {eventsToShow.map((event) => {
-              const textColor = "#000000"
+              const textColors = isDarkColor(event.color ?? "") ? "#FFFFFF" : "#000000"
               return (
                 <div
                   key={event.id}
                   className="event"
-                  style={{ backgroundColor:`${event.color ? event.color : ""}`, color: textColor }}
+                  style={{ backgroundColor: `${event.color ? event.color : ""}`, color: textColors }}
                   onClick={(e) => {
                     e.stopPropagation()
                     handleEventClick(event)
@@ -122,7 +123,11 @@ const Calendar: React.FC<BigCalendarProps> = ({ events, renderHeader, onDateClic
                 </div>
               )
             })}
-            {extraEventsCount > 0 && <div className="more-events" style={{fontSize:4}}>+{extraEventsCount}</div>}
+            {extraEventsCount > 0 && (
+              <div className="more-events" style={{ fontSize: 10, position: "absolute", marginTop: -88 }}>
+                <strong>+{extraEventsCount}</strong>
+              </div>
+            )}
           </div>
         </div>
       )
