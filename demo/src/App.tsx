@@ -7,21 +7,10 @@ const App = () => {
   const events = [
     { date: new Date(2024, 7, 20), color: "#ff0000" },
     { date: new Date(2024, 7, 22), color: "#00ff00" },
-    { date: new Date(2024, 7, 20), color: "#ff0000" },
     { date: new Date(2024, 7, 22), color: "#00ff00" },
     { date: new Date(2024, 7, 21) },
     { date: new Date(2024, 7, 25) },
-    { date: new Date(2024, 7, 25) },
-    { date: new Date(2024, 7, 25) },
-    { date: new Date(2024, 7, 25) },
-    { date: new Date(2024, 7, 25) },
-    { date: new Date(2024, 7, 25) },
     { date: new Date(2024, 7, 22), color: "#00ff00" },
-    { date: new Date(2024, 7, 22), color: "#00ff00" },
-    { date: new Date(2024, 7, 22), color: "#00ff00" },
-    { date: new Date(2024, 7, 22), color: "#00ff00" },
-
-    // More events...
   ]
   const events2 = [
     {
@@ -44,83 +33,6 @@ const App = () => {
         location: "Downtown Clinic",
         doctor: "Dr. Emily Clark",
         notes: "Routine check-up.",
-      },
-    },
-    {
-      id: "3",
-      title: "Web Development Workshop",
-      date: "2024-08-28T09:00:00Z",
-      color: "#3357FF",
-      data: {
-        location: "Tech Hub",
-        speaker: "Alex Johnson",
-        topics: ["React", "TypeScript", "GraphQL"],
-      },
-    },
-    {
-      id: "4",
-      title: "Dinner with Friends",
-      date: "2024-08-29T19:00:00Z",
-      color: "#FF33A2",
-      data: {
-        location: "The Italian Bistro",
-        reservation: "7:00 PM under Jane Doe",
-        notes: "Celebrating Sarah's promotion.",
-      },
-    },
-    {
-      id: "5",
-      title: "Gym Session",
-      date: "2024-08-30T18:00:00Z",
-      color: "#FFD700",
-      data: {
-        location: "Fitness Center",
-        trainer: "Mike Tyson",
-        routine: ["Cardio", "Strength Training"],
-      },
-    },
-    {
-      id: "5",
-      title: "Gym Session",
-      date: "2024-08-30T18:00:00Z",
-      color: "#FFD700",
-      data: {
-        location: "Fitness Center",
-        trainer: "Mike Tyson",
-        routine: ["Cardio", "Strength Training"],
-      },
-    },
-    {
-      id: "5",
-      title: "Gym Session",
-      date: "2024-08-30T18:00:00Z",
-      color: "#FFD700",
-      data: {
-        location: "Fitness Center",
-        trainer: "Mike Tyson",
-        routine: ["Cardio", "Strength Training"],
-      },
-    },
-    {
-      id: "5",
-      title: "Gym Session",
-      date: "2024-08-30T18:00:00Z",
-      color: "#FFD700",
-      data: {
-        location: "Fitness Center",
-        trainer: "Mike Tyson",
-        routine: ["Cardio", "Strength Training"],
-      },
-    },
-    {
-      id: "5",
-      title: "Gym Session",
-      date: "2024-08-30T18:00:00Z",
-      color: "#FFD700",
-      data: {
-        location: "Fitness Center",
-        trainer: "Mike Tyson",
-        routine: ["Cardio", "Strength Training"],
       },
     },
   ]
