@@ -1,3 +1,17 @@
+# [1.6.0](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.5.1...v1.6.0) (2024-08-22)
+
+
+### Bug Fixes
+
+* Calendar Style Update ([c9f8f25](https://github.com/tuuguuwastaken/react-mn-calendar/commit/c9f8f256c3a8126713e5578682faa6cc826a0a6d))
+* Readme Update ([a1aabc2](https://github.com/tuuguuwastaken/react-mn-calendar/commit/a1aabc20c0ba62e18e18314d8ecda62f2ab7197e))
+* Text Color Not changing depending on the background color ([35b1fc2](https://github.com/tuuguuwastaken/react-mn-calendar/commit/35b1fc282f04692147960d6bf7c286d1ccf0a3bf))
+
+
+### Features
+
+* MonthCalendar selectAble Added ([1ba6ab4](https://github.com/tuuguuwastaken/react-mn-calendar/commit/1ba6ab4eb35e292091d7d00bad6561887e07ce6b))
+
 ## [1.5.1](https://github.com/tuuguuwastaken/react-mn-calendar/compare/v1.5.0...v1.5.1) (2024-08-20)
 
 
