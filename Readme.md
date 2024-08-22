@@ -24,7 +24,7 @@ You can import and use the Calendar and SmallCalendar components as follows:
 
 ```js
 import React from 'react';
-import { Calendar, SmallCalendar, MonthPicker } from 'react-mn-calendar';
+import { Calendar, SmallCalendar, MonthCalendar } from 'react-mn-calendar';
 
 const App = () => {
     const SmallCalendarExampleEvents = [
@@ -65,7 +65,7 @@ const App = () => {
       <h1>My Calendar App</h1>
       <Calendar events={CalendarExampleEvents} />
       <SmallCalendar  events={SmallCalendarExampleEvents} />
-       <MonthPicker
+       <MonthCalendar
             onClickMonth={function (val: Date): void {
               console.log(val)
             }}
